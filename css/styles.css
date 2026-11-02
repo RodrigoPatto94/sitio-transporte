@@ -1,0 +1,560 @@
+/* =====================================================================
+   styles.css  |  LOS MELLIS
+   ---------------------------------------------------------------------
+   ÍNDICE
+   1. Variables (colores, tipografía, medidas)  <- acá se cambia la paleta
+   2. Reinicio y base
+   3. Botones
+   4. Barra de navegación
+   5. Portada (hero)
+   6. Secciones y títulos
+   7. Servicios, ventajas, ruta, proceso
+   8. Formulario
+   9. Contacto, pie y botón flotante
+   10. Íconos
+   11. Responsive (celulares y tablets)
+   ===================================================================== */
+
+
+/* ---------- 1. VARIABLES ----------
+   Cambiá un color acá y se actualiza en toda la página. */
+:root {
+  --azul-oscuro: #0B1F3A;
+  --azul-medio:  #2563EB;
+  --azul-hover:  #1D4ED8;
+  --blanco:      #FFFFFF;
+  --gris-fondo:  #F3F5F8;
+  --gris-borde:  #D9DEE6;
+  --gris-texto:  #4A5563;
+  --verde-wa:    #25D366;
+  --verde-wa-hover: #1EB958;
+  --error:       #B42318;
+  --exito:       #067647;
+
+  --fuente-titulos: "Manrope", "Segoe UI", Arial, sans-serif;
+  --fuente-texto:   "Inter", "Segoe UI", Arial, sans-serif;
+
+  --ancho-max: 1120px;
+  --alto-menu: 68px;
+  --radio: 6px;
+  --espacio-seccion: clamp(3.5rem, 8vw, 6rem);
+}
+
+
+/* ---------- 2. REINICIO Y BASE ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--alto-menu);   /* evita que el menú tape los títulos al navegar */
+}
+
+body {
+  margin: 0;
+  font-family: var(--fuente-texto);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--gris-texto);
+  background: var(--blanco);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--fuente-titulos);
+  color: var(--azul-oscuro);
+  line-height: 1.2;
+  margin: 0 0 .6rem;
+}
+h1 { font-size: clamp(2.1rem, 5.5vw, 3.6rem); font-weight: 800; letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.7rem, 3.5vw, 2.4rem); font-weight: 800; letter-spacing: -0.01em; }
+h3 { font-size: 1.15rem; font-weight: 700; }
+
+p { margin: 0 0 1rem; max-width: 65ch; }
+a { color: var(--azul-medio); }
+img { max-width: 100%; height: auto; }
+ul, ol { padding: 0; margin: 0; }
+
+.container {
+  width: 100%;
+  max-width: var(--ancho-max);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+.container--narrow { max-width: 780px; }
+
+/* Foco visible para quien navega con teclado */
+:focus-visible {
+  outline: 3px solid var(--azul-medio);
+  outline-offset: 3px;
+}
+
+
+/* ---------- 3. BOTONES ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .85rem 1.5rem;
+  font-family: var(--fuente-titulos);
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: var(--radio);
+  cursor: pointer;
+  transition: background-color .2s, border-color .2s, color .2s;
+}
+.btn--primary  { background: var(--azul-medio); color: var(--blanco); }
+.btn--primary:hover { background: var(--azul-hover); }
+
+.btn--whatsapp { background: var(--verde-wa); color: #06260F; }
+.btn--whatsapp:hover { background: var(--verde-wa-hover); }
+
+.btn--outline  { background: transparent; color: var(--azul-oscuro); border-color: var(--azul-oscuro); }
+.btn--outline:hover { background: var(--azul-oscuro); color: var(--blanco); }
+
+.btn--small { padding: .5rem 1.1rem; font-size: .95rem; }
+.btn--large { padding: 1.05rem 2rem; font-size: 1.1rem; }
+.btn--block { width: 100%; }
+
+
+/* ---------- 4. BARRA DE NAVEGACIÓN ---------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--alto-menu);
+  background: var(--azul-oscuro);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.navbar__inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar__logo {
+  font-family: var(--fuente-titulos);
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: .04em;
+  color: var(--blanco);
+  text-decoration: none;
+}
+.navbar__menu {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+.navbar__menu a:not(.btn) {
+  color: #D6DEEB;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: .95rem;
+  transition: color .2s;
+}
+.navbar__menu a:not(.btn):hover { color: var(--blanco); }
+
+/* Botón hamburguesa (solo se ve en celular) */
+.navbar__toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.navbar__toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--blanco);
+  transition: transform .25s, opacity .25s;
+}
+/* Cuando el menú está abierto, la hamburguesa se vuelve una X */
+.navbar__toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.navbar__toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.navbar__toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+
+/* ---------- 5. PORTADA (HERO) ----------
+   Para poner una foto de fondo: guardala como img/hero.jpg.
+   Si el archivo no existe, se ve el fondo azul con el diseño de ruta. */
+.hero {
+  position: relative;
+  color: var(--blanco);
+  background-color: var(--azul-oscuro);
+  background-image:
+    linear-gradient(180deg, rgba(11,31,58,.78) 0%, rgba(11,31,58,.92) 100%),
+    url("../img/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: clamp(4.5rem, 12vw, 9rem) 0 clamp(6rem, 13vw, 10rem);
+  overflow: hidden;
+}
+.hero h1 { color: var(--blanco); max-width: 18ch; }
+.hero__subtitle {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  color: #D6DEEB;
+  max-width: 52ch;
+  margin: 1.25rem 0 2rem;
+}
+.hero__actions { display: flex; flex-wrap: wrap; gap: .85rem; }
+
+/* La "ruta": línea discontinua de asfalto en el borde inferior */
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 2.25rem;
+  height: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255,255,255,.55) 0 36px,
+    transparent 36px 72px
+  );
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 4.5rem;
+  background: rgba(0,0,0,.28);
+}
+.hero__content { position: relative; z-index: 1; }
+
+
+/* ---------- 6. SECCIONES Y TÍTULOS ---------- */
+.section { padding: var(--espacio-seccion) 0; }
+.section--gray { background: var(--gris-fondo); }
+.section--dark { background: var(--azul-oscuro); color: #D6DEEB; }
+.section--dark h2, .section--dark h3 { color: var(--blanco); }
+
+.section__header { margin-bottom: 2.5rem; }
+.section__header p { font-size: 1.1rem; }
+
+.grid { display: grid; gap: 1.5rem; }
+.grid--3 { grid-template-columns: repeat(3, 1fr); }
+
+
+/* ---------- 7. SERVICIOS, VENTAJAS, RUTA, PROCESO ---------- */
+
+/* Servicios: bloques con borde superior azul oscuro e ícono */
+.card {
+  padding: 2rem 1.75rem;
+  background: var(--blanco);
+  border: 1px solid var(--gris-borde);
+  border-top: 4px solid var(--azul-oscuro);
+  border-radius: var(--radio);
+}
+.card .icon {
+  width: 52px;
+  height: 52px;
+  margin-bottom: 1.25rem;
+  background-color: var(--azul-oscuro);
+  padding: 0;
+}
+.card p:last-child { margin-bottom: 0; }
+
+/* Ventajas: sin tarjeta, solo ícono, título y texto con línea arriba */
+.feature {
+  padding-top: 1.25rem;
+  border-top: 2px solid var(--gris-borde);
+}
+.feature .icon {
+  width: 32px;
+  height: 32px;
+  margin-bottom: .9rem;
+  background-color: var(--azul-medio);
+}
+.feature p { margin-bottom: 0; }
+
+/* Ruta Córdoba — Tucumán */
+.route {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 2.25rem 1.5rem;
+  margin-bottom: 2.5rem;
+  background: var(--azul-oscuro);
+  border-radius: var(--radio);
+  color: var(--blanco);
+}
+.route__point {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .6rem;
+  font-family: var(--fuente-titulos);
+  font-size: clamp(1.1rem, 3vw, 1.6rem);
+}
+.route__dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--blanco);
+  border: 5px solid var(--azul-medio);
+}
+.route__line {
+  flex: 1;
+  height: 4px;
+  margin-bottom: 2.1rem;   /* alinea la línea con los puntos */
+  background: repeating-linear-gradient(90deg, rgba(255,255,255,.7) 0 14px, transparent 14px 26px);
+}
+
+.coverage ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  margin-top: 1rem;
+}
+.coverage li {
+  padding: .45rem 1rem;
+  background: var(--blanco);
+  border: 1px solid var(--gris-borde);
+  border-radius: 999px;
+  font-size: .95rem;
+}
+
+/* Proceso: lista numerada (acá la numeración SÍ tiene sentido: es una secuencia) */
+.steps {
+  list-style: none;
+  counter-reset: paso;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.steps__item {
+  counter-increment: paso;
+  position: relative;
+  padding-top: 3.5rem;
+}
+.steps__item::before {
+  content: counter(paso);
+  position: absolute;
+  top: 0; left: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: grid;
+  place-items: center;
+  font-family: var(--fuente-titulos);
+  font-weight: 800;
+  color: var(--blanco);
+  background: var(--azul-oscuro);
+  border-radius: 50%;
+}
+/* Línea que conecta un paso con el siguiente (solo en pantallas grandes) */
+.steps__item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 1.25rem;
+  left: 3.1rem;
+  right: -1rem;
+  height: 2px;
+  background: var(--gris-borde);
+}
+.steps__item p { margin-bottom: 0; }
+
+
+/* ---------- 8. FORMULARIO ---------- */
+.form {
+  display: grid;
+  gap: 1.1rem;
+  padding: clamp(1.25rem, 4vw, 2.25rem);
+  background: var(--gris-fondo);
+  border: 1px solid var(--gris-borde);
+  border-radius: var(--radio);
+}
+.form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+.form__field { display: flex; flex-direction: column; gap: .4rem; }
+
+.form label {
+  font-weight: 600;
+  font-size: .92rem;
+  color: var(--azul-oscuro);
+}
+.form input[type="text"],
+.form input[type="tel"],
+.form input[type="email"],
+.form input[type="date"],
+.form select,
+.form textarea {
+  width: 100%;
+  padding: .8rem .9rem;
+  font: inherit;
+  color: var(--azul-oscuro);
+  background: var(--blanco);
+  border: 1px solid var(--gris-borde);
+  border-radius: var(--radio);
+  transition: border-color .2s, box-shadow .2s;
+}
+.form textarea { resize: vertical; }
+.form input:focus, .form select:focus, .form textarea:focus {
+  outline: none;
+  border-color: var(--azul-medio);
+  box-shadow: 0 0 0 3px rgba(37,99,235,.2);
+}
+/* La clase is-invalid la agrega main.js cuando falta un dato (Paso 4) */
+.form .is-invalid { border-color: var(--error); }
+
+.form__check { display: flex; align-items: flex-start; gap: .6rem; }
+.form__check input { margin-top: .3rem; width: 18px; height: 18px; flex-shrink: 0; }
+.form__check label { font-weight: 400; color: var(--gris-texto); }
+
+/* Campo trampa anti-spam: fuera de la pantalla, no se ve ni se usa */
+.form__trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.form__status { margin: 0; font-weight: 600; min-height: 1.5em; }
+.form__status.is-success { color: var(--exito); }
+.form__status.is-error   { color: var(--error); }
+
+
+/* ---------- 9. CONTACTO, PIE Y BOTÓN FLOTANTE ---------- */
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2.5rem;
+}
+.contact__list { list-style: none; display: grid; gap: .6rem; }
+.contact__list a { color: var(--blanco); }
+.contact__list strong { color: var(--blanco); }
+
+.footer {
+  padding: 2rem 0;
+  background: #07162B;
+  color: #9FB0C8;
+  font-size: .9rem;
+}
+.footer p { margin: 0 0 .4rem; max-width: none; }
+.footer__legal { font-size: .82rem; }
+
+.whatsapp-float {
+  position: fixed;
+  right: 1rem;
+  bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+  z-index: 90;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .8rem 1.1rem;
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+  color: #06260F;
+  background: var(--verde-wa);
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0,0,0,.28);
+  transition: background-color .2s;
+}
+.whatsapp-float:hover { background: var(--verde-wa-hover); }
+.whatsapp-float::before {
+  content: "";
+  width: 22px;
+  height: 22px;
+  background-color: currentColor;
+  -webkit-mask: var(--i-chat) center / contain no-repeat;
+          mask: var(--i-chat) center / contain no-repeat;
+}
+
+
+/* ---------- 10. ÍCONOS ----------
+   Íconos de línea simples incluidos en el propio CSS (no hace falta
+   descargar nada). Se pintan con el color de fondo (background-color). */
+:root {
+  --i-caja:    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 7.5 12 3l9 4.5v9L12 21l-9-4.5z'/%3E%3Cpath d='M3 7.5 12 12l9-4.5M12 12v9'/%3E%3C/svg%3E");
+  --i-pallet:  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4' y='3' width='7' height='8'/%3E%3Crect x='13' y='3' width='7' height='8'/%3E%3Cpath d='M2 14h20v3H2zM5 17v3M12 17v3M19 17v3'/%3E%3C/svg%3E");
+  --i-camion:  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 6h11v10H2zM13 9h4l4 4v3h-8'/%3E%3Ccircle cx='6' cy='18' r='2'/%3E%3Ccircle cx='17' cy='18' r='2'/%3E%3C/svg%3E");
+  --i-reloj:   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M12 7v5l3 2'/%3E%3C/svg%3E");
+  --i-persona: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='8' r='4'/%3E%3Cpath d='M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7'/%3E%3C/svg%3E");
+  --i-mapa:    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z'/%3E%3Ccircle cx='12' cy='10' r='2.5'/%3E%3C/svg%3E");
+  --i-balanza: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3v18M7 21h10M4 7h16'/%3E%3Cpath d='M4 7 1.5 13a2.5 2.5 0 0 0 5 0zM20 7l-2.5 6a2.5 2.5 0 0 0 5 0z'/%3E%3C/svg%3E");
+  --i-chat:    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 12a8 8 0 0 1-11.5 7.2L3 21l1.8-5.5A8 8 0 1 1 21 12z'/%3E%3C/svg%3E");
+}
+
+.icon {
+  display: block;
+  -webkit-mask-repeat: no-repeat;          mask-repeat: no-repeat;
+  -webkit-mask-position: center;           mask-position: center;
+  -webkit-mask-size: 60%;                  mask-size: 60%;
+}
+.feature .icon { -webkit-mask-size: contain; mask-size: contain; }
+
+.icon[data-icon="caja"]    { -webkit-mask-image: var(--i-caja);    mask-image: var(--i-caja); }
+.icon[data-icon="pallet"]  { -webkit-mask-image: var(--i-pallet);  mask-image: var(--i-pallet); }
+.icon[data-icon="camion"]  { -webkit-mask-image: var(--i-camion);  mask-image: var(--i-camion); }
+.icon[data-icon="reloj"]   { -webkit-mask-image: var(--i-reloj);   mask-image: var(--i-reloj); }
+.icon[data-icon="persona"] { -webkit-mask-image: var(--i-persona); mask-image: var(--i-persona); }
+.icon[data-icon="mapa"]    { -webkit-mask-image: var(--i-mapa);    mask-image: var(--i-mapa); }
+.icon[data-icon="balanza"] { -webkit-mask-image: var(--i-balanza); mask-image: var(--i-balanza); }
+.icon[data-icon="chat"]    { -webkit-mask-image: var(--i-chat);    mask-image: var(--i-chat); }
+
+
+/* ---------- 11. RESPONSIVE ----------
+   Se aplica "de ahí para abajo": cuando la pantalla es más angosta
+   que el valor indicado. */
+
+/* Tablets */
+@media (max-width: 960px) {
+  .grid--3 { grid-template-columns: repeat(2, 1fr); }
+  .steps { grid-template-columns: repeat(2, 1fr); row-gap: 2.25rem; }
+  .steps__item::after { display: none; }
+}
+
+/* Celulares */
+@media (max-width: 760px) {
+  .navbar__toggle { display: flex; }
+
+  /* El menú se oculta y se despliega al tocar la hamburguesa.
+     main.js (Paso 4) agrega la clase "is-open". */
+  .navbar__menu {
+    display: none;
+    position: absolute;
+    top: var(--alto-menu);
+    left: 0; right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: .5rem 1.25rem 1.25rem;
+    background: var(--azul-oscuro);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .navbar__menu.is-open { display: flex; }
+  .navbar__menu a:not(.btn) {
+    padding: .9rem 0;
+    font-size: 1.05rem;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .navbar__menu .btn { margin-top: 1rem; }
+
+  .grid--3 { grid-template-columns: 1fr; }
+  .steps   { grid-template-columns: 1fr; }
+  .form__row { grid-template-columns: 1fr; }
+
+  .hero__actions .btn { width: 100%; }
+  .route { padding: 1.75rem 1rem; }
+  .contact { flex-direction: column; align-items: flex-start; gap: 1.75rem; }
+  .contact .btn { width: 100%; }
+
+  /* En celular el botón flotante es solo el ícono, más compacto */
+  .whatsapp-float { padding: .9rem; font-size: 0; gap: 0; }
+  .whatsapp-float::before { width: 26px; height: 26px; }
+}
+
+/* Respeta a quienes desactivaron las animaciones en su dispositivo */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}

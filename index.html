@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ============ SEO BÁSICO ============ -->
+  <title>LOS MELLIS | Transporte de cargas entre Córdoba y Tucumán</title>
+  <meta name="description" content="Transporte de cargas generales, pallets y mercadería por volumen entre Córdoba y Tucumán. Solicitá tu cotización online.">
+  <meta name="robots" content="index, follow">
+  <!-- Cuando tengan dominio, reemplazar por la dirección real -->
+  <link rel="canonical" href="[A COMPLETAR: https://www.dominio.com.ar/]">
+
+  <!-- Vista previa al compartir en WhatsApp / redes -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:title" content="LOS MELLIS | Transporte de cargas entre Córdoba y Tucumán">
+  <meta property="og:description" content="Cargas generales, pallets y mercadería por volumen. Pedí tu cotización.">
+  <meta property="og:image" content="[A COMPLETAR: https://www.dominio.com.ar/img/compartir.jpg]">
+
+  <!-- Datos estructurados (ayudan a Google a entender el negocio).
+       Solo incluimos lo confirmado; se amplía cuando haya más datos. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MovingCompany",
+    "name": "LOS MELLIS",
+    "description": "Transporte de cargas generales, pallets y mercadería por volumen entre Córdoba y Tucumán.",
+    "areaServed": ["Córdoba, Argentina", "Tucumán, Argentina"]
+  }
+  </script>
+
+  <!-- Tipografías (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <!-- =====================================================
+       0. BARRA DE NAVEGACIÓN
+       data-config="nombreEmpresa" => main.js reemplaza este texto
+       con el nombre de config.js (Paso 4)
+       ===================================================== -->
+  <header class="navbar" id="inicio-nav">
+    <div class="container navbar__inner">
+      <a href="#inicio" class="navbar__logo" data-config="nombreEmpresa">LOS MELLIS</a>
+
+      <button class="navbar__toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="navbar__menu" id="menu" aria-label="Navegación principal">
+        <a href="#servicios">Servicios</a>
+        <a href="#rutas">Rutas</a>
+        <a href="#ventajas">Ventajas</a>
+        <a href="#proceso">Cómo contratar</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#cotizar" class="btn btn--primary btn--small">Cotizar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- =====================================================
+         1. PORTADA (HERO)
+         La foto de fondo se agrega por CSS en el Paso 3.
+         ===================================================== -->
+    <section class="hero" id="inicio">
+      <div class="container hero__content">
+        <h1>Transporte de cargas entre <span data-config="rutaOrigen">Córdoba</span> y <span data-config="rutaDestino">Tucumán</span></h1>
+        <p class="hero__subtitle">
+          Cargas generales, pallets y mercadería por volumen para empresas.
+          Pedí tu cotización y te respondemos a la brevedad.
+          <!-- [REVISAR] "a la brevedad": confirmar si pueden prometer un plazo concreto (ej. 24 hs) -->
+        </p>
+        <div class="hero__actions">
+          <a href="#cotizar" class="btn btn--primary">Solicitar cotización</a>
+          <a href="#" class="btn btn--whatsapp" data-whatsapp>Escribinos por WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         2. SERVICIOS
+         ===================================================== -->
+    <section class="section" id="servicios">
+      <div class="container">
+        <header class="section__header">
+          <h2>Nuestros servicios</h2>
+          <p>Trasladamos la mercadería de tu empresa de forma ordenada y segura.</p>
+        </header>
+
+        <div class="grid grid--3">
+          <article class="card">
+            <span class="icon" data-icon="caja" aria-hidden="true"></span>
+            <h3>Cargas generales</h3>
+            <p>Traslado de mercadería variada entre Córdoba y Tucumán, adaptado a lo que necesite tu empresa.</p>
+          </article>
+
+          <article class="card">
+            <span class="icon" data-icon="pallet" aria-hidden="true"></span>
+            <h3>Transporte de pallets</h3>
+            <p>Movemos cargas paletizadas, desde pocos pallets hasta volúmenes mayores.</p>
+          </article>
+
+          <article class="card">
+            <span class="icon" data-icon="camion" aria-hidden="true"></span>
+            <h3>Mercadería por volumen</h3>
+            <p>Transporte de mercadería en cantidad, con coordinación de retiro y entrega.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         3. RUTAS Y COBERTURA
+         ===================================================== -->
+    <section class="section section--gray" id="rutas">
+      <div class="container">
+        <header class="section__header">
+          <h2>Rutas y cobertura</h2>
+          <p>Conectamos Córdoba y Tucumán con servicio de transporte de cargas.</p>
+        </header>
+
+        <!-- Diagrama simple de la ruta (se diseña en el Paso 3) -->
+        <div class="route" aria-label="Ruta Córdoba a Tucumán">
+          <div class="route__point">
+            <span class="route__dot"></span>
+            <strong data-config="rutaOrigen">Córdoba</strong>
+          </div>
+          <div class="route__line" aria-hidden="true"></div>
+          <div class="route__point">
+            <span class="route__dot"></span>
+            <strong data-config="rutaDestino">Tucumán</strong>
+          </div>
+        </div>
+
+        <div class="coverage">
+          <h3>Localidades y zonas de cobertura</h3>
+          <!-- main.js completa esta lista con config.js (Paso 4) -->
+          <ul id="listaCobertura">
+            <li>[A COMPLETAR: localidad 1]</li>
+            <li>[A COMPLETAR: localidad 2]</li>
+            <li>[A COMPLETAR: localidad 3]</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         4. VENTAJAS COMPETITIVAS
+         [REVISAR] Todas son BORRADOR. Confirmar cuáles son reales.
+         ===================================================== -->
+    <section class="section" id="ventajas">
+      <div class="container">
+        <header class="section__header">
+          <h2>Por qué elegirnos</h2>
+          <p>[REVISAR] Ventajas en borrador: dejá solo las que la empresa pueda cumplir.</p>
+        </header>
+
+        <div class="grid grid--3">
+          <article class="feature">
+            <span class="icon" data-icon="reloj" aria-hidden="true"></span>
+            <h3>Respuesta rápida</h3>
+            <p>Cotizaciones atendidas con agilidad. [REVISAR]</p>
+          </article>
+
+          <article class="feature">
+            <span class="icon" data-icon="persona" aria-hidden="true"></span>
+            <h3>Trato directo</h3>
+            <p>Hablás directamente con quien coordina tu carga. [REVISAR]</p>
+          </article>
+
+          <article class="feature">
+            <span class="icon" data-icon="mapa" aria-hidden="true"></span>
+            <h3>Ruta especializada</h3>
+            <p>Foco en el corredor Córdoba–Tucumán. [REVISAR]</p>
+          </article>
+
+          <article class="feature">
+            <span class="icon" data-icon="balanza" aria-hidden="true"></span>
+            <h3>Flexibilidad de volumen</h3>
+            <p>Opciones para distintas cantidades de carga. [REVISAR]</p>
+          </article>
+
+          <article class="feature">
+            <span class="icon" data-icon="chat" aria-hidden="true"></span>
+            <h3>Comunicación durante el viaje</h3>
+            <p>Información sobre el estado de tu carga. [REVISAR]</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         5. PROCESO PARA CONTRATAR
+         [REVISAR] Pasos tipo: ajustar a cómo trabajan realmente.
+         Acá SÍ usamos números porque es una secuencia real.
+         ===================================================== -->
+    <section class="section section--gray" id="proceso">
+      <div class="container">
+        <header class="section__header">
+          <h2>Cómo contratar el servicio</h2>
+          <p>[REVISAR] Proceso en borrador, a confirmar con la empresa.</p>
+        </header>
+
+        <ol class="steps">
+          <li class="steps__item">
+            <h3>Pedí tu cotización</h3>
+            <p>Completá el formulario o escribinos por WhatsApp con los datos de tu carga.</p>
+          </li>
+          <li class="steps__item">
+            <h3>Recibí la propuesta</h3>
+            <p>Te enviamos el presupuesto con las condiciones del servicio.</p>
+          </li>
+          <li class="steps__item">
+            <h3>Coordinamos el retiro</h3>
+            <p>Acordamos fecha y lugar de retiro de la mercadería.</p>
+          </li>
+          <li class="steps__item">
+            <h3>Entrega en destino</h3>
+            <p>Trasladamos la carga y la entregamos en el punto acordado.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         6. FORMULARIO DE COTIZACIÓN
+         - action se completa en el Paso 5 (servicio de recepción)
+         - name="..." es el nombre con el que llega cada dato
+         ===================================================== -->
+    <section class="section" id="cotizar">
+      <div class="container container--narrow">
+        <header class="section__header">
+          <h2>Solicitá tu cotización</h2>
+          <p>Completá los datos y te contactamos. Los campos con * son obligatorios.</p>
+        </header>
+
+        <!-- action = respaldo si el JavaScript no carga. Con JS activo, main.js usa
+             formularioEndpoint de config.js (y lo sincroniza acá), así que ese es el único dato a cambiar. -->
+        <form class="form" id="formCotizacion" action="https://formspree.io/f/mqppyqoj" method="POST" novalidate>
+
+          <div class="form__row">
+            <div class="form__field">
+              <label for="nombre">Nombre y apellido *</label>
+              <input type="text" id="nombre" name="nombre" autocomplete="name" required>
+            </div>
+            <div class="form__field">
+              <label for="empresa">Empresa *</label>
+              <input type="text" id="empresa" name="empresa" autocomplete="organization" required>
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__field">
+              <label for="telefono">Teléfono / WhatsApp *</label>
+              <input type="tel" id="telefono" name="telefono" autocomplete="tel" required>
+            </div>
+            <div class="form__field">
+              <label for="email">Correo electrónico *</label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__field">
+              <label for="origen">Origen *</label>
+              <select id="origen" name="origen" required>
+                <option value="">Elegí una opción</option>
+                <option>Córdoba</option>
+                <option>Tucumán</option>
+                <option>Otro</option>
+              </select>
+            </div>
+            <div class="form__field">
+              <label for="destino">Destino *</label>
+              <select id="destino" name="destino" required>
+                <option value="">Elegí una opción</option>
+                <option>Córdoba</option>
+                <option>Tucumán</option>
+                <option>Otro</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__field">
+              <label for="tipoCarga">Tipo de carga *</label>
+              <select id="tipoCarga" name="tipo_carga" required>
+                <option value="">Elegí una opción</option>
+                <option>Pallets</option>
+                <option>Carga general</option>
+                <option>Mercadería por volumen</option>
+              </select>
+            </div>
+            <div class="form__field">
+              <label for="cantidad">Cantidad aproximada (pallets o bultos)</label>
+              <input type="text" id="cantidad" name="cantidad">
+            </div>
+          </div>
+
+          <div class="form__field">
+            <label for="fecha">Fecha estimada de retiro</label>
+            <input type="date" id="fecha" name="fecha_retiro">
+          </div>
+
+          <div class="form__field">
+            <label for="detalles">Detalles adicionales</label>
+            <textarea id="detalles" name="detalles" rows="4"
+              placeholder="Medidas, peso aproximado, dirección de retiro, necesidades especiales..."></textarea>
+          </div>
+
+          <!-- Campo trampa anti-spam: los humanos no lo ven, los robots lo completan -->
+          <input type="text" name="_gotcha" class="form__trap" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <!-- Asunto del correo que recibe la empresa (main.js le agrega el nombre configurado) -->
+          <input type="hidden" name="_subject" value="Nueva solicitud de cotización">
+
+          <div class="form__check">
+            <input type="checkbox" id="consentimiento" name="consentimiento" required>
+            <label for="consentimiento">Acepto que me contacten para responder a esta consulta. *</label>
+          </div>
+
+          <button type="submit" class="btn btn--primary btn--block">Enviar solicitud</button>
+          <button type="button" class="btn btn--outline btn--block" id="btnFormWhatsapp">Prefiero enviarla por WhatsApp</button>
+
+          <!-- Acá main.js muestra mensajes de éxito o error -->
+          <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         7. CONTACTO
+         href="#" => main.js arma los enlaces reales con config.js
+         ===================================================== -->
+    <section class="section section--dark" id="contacto">
+      <div class="container">
+        <header class="section__header">
+          <h2>Contacto</h2>
+          <p>Escribinos y te respondemos.</p>
+        </header>
+
+        <div class="contact">
+          <a href="#" class="btn btn--whatsapp btn--large" data-whatsapp>Escribir por WhatsApp</a>
+
+          <ul class="contact__list">
+            <li><strong>Correo:</strong> <a href="#" data-email data-config="email">[A COMPLETAR]</a></li>
+            <li><strong>Teléfono:</strong> <span data-config="telefono">[A COMPLETAR]</span></li>
+            <li><strong>Dirección:</strong> <span data-config="direccion">[A COMPLETAR]</span></li>
+            <li><strong>Horarios:</strong> <span data-config="horarios">[A COMPLETAR]</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =====================================================
+       8. PIE DE PÁGINA
+       ===================================================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>&copy; <span id="anioActual">2026</span> <span data-config="nombreEmpresa">LOS MELLIS</span>. Todos los derechos reservados.</p>
+      <p class="footer__legal">
+        Razón social: <span data-config="razonSocial">[A COMPLETAR]</span> ·
+        CUIT: <span data-config="cuit">[A COMPLETAR]</span> ·
+        Habilitaciones: <span data-config="habilitaciones">[A COMPLETAR]</span>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Botón flotante de WhatsApp (visible en toda la página) -->
+  <a href="#" class="whatsapp-float" data-whatsapp aria-label="Escribir por WhatsApp">WhatsApp</a>
+
+  <!-- Orden importante: primero los datos, después la lógica -->
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
